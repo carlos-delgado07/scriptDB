@@ -1,0 +1,13 @@
+app:
+  build: .
+  environment:
+    DB_HOST: db
+    DB_PORT: 5432
+    DB_NAME: universidad
+    DB_USER: carlos
+    DB_PASS: 12345678
+    PORT: 8080
+  depends_on:
+    - db
+  ports:
+    - "8080:8080"

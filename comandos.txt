@@ -1,0 +1,32 @@
+
+//copiar el proyecto comprimido para el ec2
+scp -i keyner.pem node-ms.tar ubuntu@3.15.46.223:/home/ubuntu/
+
+//para conectar a la instancia ec2
+ssh -i keyner.pem ubuntu@3.15.46.223
+
+
+
+
+//para dockerizar 
+
+docker compose up -d
+
+
+//para correr el servidor
+docker run -d -p 3000:3000 --name node-ms node-ms:1.0
+
+
+
+//para exporta el archivo docker en un .tar
+docker save -o node-ms.tar node-ms:1.0
+
+
+//reiniciar el kubernetes
+sudo systemctl restart k3s
+
+
+//verificar pods y servicios
+
+sudo k3s kubectl get pods
+sudo k3s kubectl get svc
